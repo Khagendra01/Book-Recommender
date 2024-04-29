@@ -2,3 +2,8 @@ flask
 numpy
 pandas
 gunicorn
+pydantic
+langchain-core
+langchain-community
+langchain-openai
+faiss

@@ -22,34 +22,85 @@
         .nav a:hover {
             color: #ccc;
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .card {
-            margin: 20px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .card img {
-            height: 200px;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-        }
-        .card-body {
-            padding: 20px;
-        }
-        .text-white {
-            color: #333;
-        }
+        main {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding: 20px;
+		}
+
+		.hero {
+			background-image: linear-gradient(to bottom, #333, #555);
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+		}
+
+		.features {
+			background-color: #f7f7f7;
+			padding: 20px;
+		}
+
+		.features ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		.features li {
+			margin-bottom: 20px;
+		}
+
+		.features img {
+			width: 50px;
+			height: 50px;
+			margin-bottom: 10px;
+		}
+
+		.form {
+			background-color: #f7f7f7;
+			padding: 20px;
+		}
+
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		label {
+			margin-bottom: 10px;
+		}
+
+		input,
+		textarea {
+			padding: 10px;
+			margin-bottom: 20px;
+			border: none;
+			border-radius: 5px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+
+		input[type="submit"] {
+			background-color: #333;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
         .spaced {
             margin-right: 40px;
         }
         .nav {
              justify-content: space-between;
         }
+        .footer {
+			background-color: #333;
+			color: #fff;
+			padding: 10px;
+			text-align: center;
+		}
     </style>
 </head>
 <body>
@@ -60,27 +111,49 @@
         <a class="nav-link spaced" href="/contact">Contact</a>
     </nav>
 
-    <div class="container">
-        <div class="row"> 
-            <div class="col-md-12">
-                <h1 style="font-size: 50px; font-weight: bold; margin-bottom: 20px;">Top 50 Books</h1>
-            </div>
-
-            {% for i in range(book_name|length) %}
-                <div class="col-md-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <img src="{{ image[i] }}">
-                            <h2>{{ book_name[i] }}</h2>
-                            <p>{{ author[i] }}</p>
-                            <p>Votes - {{ votes[i] }}</p>
-                            <p>Rating - {{ rating[i] }}</p>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
+    <div class="main">
+        <section class="hero">
+			<h1>Welcome to Apple</h1>
+			<p>Experience the latest technology</p>
+			<button>Explore</button>
+		</section>
+		<section class="features">
+			<h2>Features</h2>
+			<ul>
+				<li>
+					<img src="icon1.png" alt="Icon 1">
+					<h3>Feature 1</h3>
+					<p>Description of feature 1</p>
+				</li>
+				<li>
+					<img src="icon2.png" alt="Icon 2">
+					<h3>Feature 2</h3>
+					<p>Description of feature 2</p>
+				</li>
+				<li>
+					<img src="icon3.png" alt="Icon 3">
+					<h3>Feature 3</h3>
+					<p>Description of feature 3</p>
+				</li>
+			</ul>
+		</section>
+		<section class="form">
+			<h2>Get in Touch</h2>
+			<form>
+				<label for="name">Name:</label>
+				<input type="text" id="name" name="name"><br><br>
+				<label for="email">Email:</label>
+				<input type="email" id="email" name="email"><br><br>
+				<label for="message">Message:</label>
+				<textarea id="message" name="message"></textarea><br><br>
+				<input type="submit" value="Submit">
+			</form>
+		</section>
     </div>
+
+    <div class="footer">
+		<p>&copy; 2023 Apple Inc.</p>
+	</div>
 
 </body>
 </html>
